@@ -1,13 +1,40 @@
-import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { submitSupportRequest } from '../api/supportRequests'
 
 function ContactUsPage() {
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [requestId, setRequestId] = useState<string | null>(null)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    event.currentTarget.reset()
-    setIsSubmitted(true)
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const attachment = formData.get('attachment')
+
+    setIsSubmitting(true)
+    setRequestId(null)
+    setSubmitError(null)
+
+    try {
+      const response = await submitSupportRequest({
+        issueCategory: String(formData.get('issue-category')),
+        userType: String(formData.get('user-type')),
+        uid: String(formData.get('uid')),
+        ticketId: String(formData.get('ticket-id')),
+        subject: String(formData.get('subject')),
+        description: String(formData.get('description')),
+        attachmentName: attachment instanceof File && attachment.size > 0 ? attachment.name : undefined,
+      })
+
+      form.reset()
+      setRequestId(response.requestId)
+    } catch {
+      setSubmitError('We could not submit your request. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -22,7 +49,9 @@ function ContactUsPage() {
       </div>
 
       <form className="request-form" onSubmit={handleSubmit}>
-        <label htmlFor="issue-category">What do you need help with?</label>
+        <label htmlFor="issue-category">
+          What do you need help with? <span className="required-marker" aria-hidden="true">*</span>
+        </label>
         <select id="issue-category" name="issue-category" defaultValue="" required>
           <option value="" disabled>
             Choose an issue
@@ -33,7 +62,9 @@ function ContactUsPage() {
           <option value="other">Something else</option>
         </select>
 
-        <label htmlFor="user-type">I am a</label>
+        <label htmlFor="user-type">
+          I am a <span className="required-marker" aria-hidden="true">*</span>
+        </label>
         <select id="user-type" name="user-type" defaultValue="" required>
           <option value="" disabled>
             Choose one
@@ -48,10 +79,14 @@ function ContactUsPage() {
         <label htmlFor="ticket-id">Ticket or booking ID</label>
         <input id="ticket-id" name="ticket-id" type="text" placeholder="Optional" />
 
-        <label htmlFor="subject">Subject</label>
+        <label htmlFor="subject">
+          Subject <span className="required-marker" aria-hidden="true">*</span>
+        </label>
         <input id="subject" name="subject" type="text" placeholder="Briefly describe the issue" required />
 
-        <label htmlFor="description">Description</label>
+        <label htmlFor="description">
+          Description <span className="required-marker" aria-hidden="true">*</span>
+        </label>
         <textarea
           id="description"
           name="description"
@@ -60,16 +95,20 @@ function ContactUsPage() {
           required
         />
 
-        <label htmlFor="attachment">Attach a file</label>
-        <input id="attachment" name="attachment" type="file" />
+        <label htmlFor="attachment">Attach a file (screenshots, PDFs, etc.)</label>
+        <input id="attachment" name="attachment" type="file" accept="image/*,.pdf" />
 
-        <button type="submit">Submit request</button>
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? 'Submitting request...' : 'Submit request'}
+        </button>
 
-        {isSubmitted && (
+        {requestId && (
           <p className="request-success" role="status">
-            Your request has been submitted. Our support team will get back to you soon.
+            Your request has been submitted with ID {requestId}. Our support team will get back to you soon.
           </p>
         )}
+
+        {submitError && <p className="request-error" role="alert">{submitError}</p>}
       </form>
     </section>
   )

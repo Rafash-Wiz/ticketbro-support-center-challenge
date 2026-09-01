@@ -503,6 +503,10 @@ main {
   font-weight: 700;
 }
 
+.required-marker {
+  color: #ff8d9a;
+}
+
 .request-form input,
 .request-form select,
 .request-form textarea {
@@ -558,6 +562,11 @@ main {
   margin-top: 21px;
 }
 
+.request-form button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
 .request-success {
   margin: 4px 0 0;
   padding: 13px 14px;
@@ -567,6 +576,18 @@ main {
   line-height: 1.5;
   background: rgba(24, 123, 82, 0.24);
   border: 1px solid rgba(93, 214, 155, 0.35);
+  border-radius: 10px;
+}
+
+.request-error {
+  margin: 4px 0 0;
+  padding: 13px 14px;
+  color: #ffd0d0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  background: rgba(151, 40, 55, 0.28);
+  border: 1px solid rgba(255, 144, 144, 0.35);
   border-radius: 10px;
 }
 
