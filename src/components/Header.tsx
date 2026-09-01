@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom'
+
 function Header() {
   return (
     <header className="site-header">
-      <a className="brand" href="#top">
+      <Link className="brand" to="/">
         ticketbro <span>|</span> Help Center
-      </a>
+      </Link>
 
       <nav className="site-nav" aria-label="Main navigation">
         <a className="sign-in-link" href="#sign-in">

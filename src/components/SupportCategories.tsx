@@ -42,7 +42,11 @@ function MoreIcon() {
 function SupportCategories() {
   return (
     <section className="support-categories" aria-label="Support categories">
-      <SupportCategoryCard title="Registration & account" icon={<IdIcon />} />
+      <SupportCategoryCard
+        title="Registration & account"
+        icon={<IdIcon />}
+        to="/help/registration"
+      />
       <SupportCategoryCard title="Bookings, tickets & refunds" icon={<CartIcon />} />
       <SupportCategoryCard title="Selling, payments & payouts" icon={<MoneyIcon />} />
       <SupportCategoryCard title="Something else" icon={<MoreIcon />} />

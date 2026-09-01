@@ -150,6 +150,32 @@ main {
   border-radius: 10px;
 }
 
+.registration-issues-page {
+  width: min(720px, calc(100% - 48px));
+  margin: 84px auto;
+}
+
+.registration-issues-page h1 {
+  margin: 0;
+  font-size: clamp(42px, 5.5vw, 62px);
+  letter-spacing: -0.055em;
+}
+
+.registration-issues-page > p:not(.eyebrow) {
+  margin: 18px 0 0;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 38px;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .site-header {
   position: fixed;
   inset: 0 0 auto;
@@ -225,7 +251,8 @@ main {
 
   .intro-section,
   .support-categories,
-  .popular-articles {
+  .popular-articles,
+  .registration-issues-page {
     width: calc(100% - 32px);
   }
 
