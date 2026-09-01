@@ -60,13 +60,16 @@ function HomePage() {
           {matchingArticles.length > 0 ? (
             <div className="article-list">
               {matchingArticles.map((article) => (
-                <a href="#article" key={article.id}>
+                <article className="article-card" key={article.id}>
                   <span>
                     <strong>{article.title}</strong>
                     <small>{article.summary}</small>
                   </span>
-                  <small>{article.category}</small>
-                </a>
+                  <span>
+                    <small>{article.category}</small>
+                    <small className="coming-soon-label">Coming soon</small>
+                  </span>
+                </article>
               ))}
             </div>
           ) : (

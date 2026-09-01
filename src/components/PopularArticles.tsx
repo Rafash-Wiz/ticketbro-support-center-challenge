@@ -10,9 +10,10 @@ function PopularArticles() {
 
       <div className="article-list">
         {articles.slice(0, 4).map((article) => (
-          <a href="#article" key={article.id}>
-            {article.title}
-          </a>
+          <article className="article-card" key={article.id}>
+            <strong>{article.title}</strong>
+            <small className="coming-soon-label">Coming soon</small>
+          </article>
         ))}
       </div>
     </section>

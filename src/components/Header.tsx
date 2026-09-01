@@ -8,9 +8,7 @@ function Header() {
       </Link>
 
       <nav className="site-nav" aria-label="Main navigation">
-        <a className="sign-in-link" href="#sign-in">
-          Sign in
-        </a>
+        <span className="sign-in-link sign-in-stub">Sign in - Coming soon</span>
       </nav>
     </header>
   )

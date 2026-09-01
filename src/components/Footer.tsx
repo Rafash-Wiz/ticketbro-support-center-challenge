@@ -7,8 +7,8 @@ function Footer() {
 
       <nav aria-label="Footer navigation">
         <Link to="/contact">Contact</Link>
-        <a href="#privacy">Privacy</a>
-        <a href="#terms">Terms</a>
+        <span>Privacy - Coming soon</span>
+        <span>Terms - Coming soon</span>
       </nav>
     </footer>
   )

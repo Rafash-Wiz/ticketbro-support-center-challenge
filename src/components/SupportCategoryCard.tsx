@@ -18,10 +18,11 @@ function SupportCategoryCard({ title, icon, to }: SupportCategoryCardProps) {
   }
 
   return (
-    <button className="support-card" type="button">
+    <div className="support-card support-card-stub" aria-label={`${title}: coming soon`}>
       <span className="card-icon">{icon}</span>
       <span>{title}</span>
-    </button>
+      <small className="coming-soon-label">Coming soon</small>
+    </div>
   )
 }
 

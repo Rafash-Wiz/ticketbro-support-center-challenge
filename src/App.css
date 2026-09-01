@@ -80,6 +80,17 @@ main {
   transform: translateY(-2px);
 }
 
+.sign-in-stub {
+  cursor: default;
+  opacity: 0.78;
+}
+
+.sign-in-stub:hover {
+  background: var(--primary);
+  box-shadow: 0 10px 26px rgba(53, 62, 227, 0.26);
+  transform: none;
+}
+
 .sign-in-link:focus-visible,
 .search-bar button:focus-visible,
 .support-card:focus-visible,
@@ -213,6 +224,16 @@ main {
   transform: translateY(-3px);
 }
 
+.support-card-stub {
+  cursor: default;
+}
+
+.support-card-stub:hover {
+  background: rgba(25, 35, 58, 0.76);
+  border-color: var(--border-soft);
+  transform: none;
+}
+
 .card-icon {
   display: grid;
   width: 62px;
@@ -261,7 +282,8 @@ main {
   gap: 10px;
 }
 
-.article-list a {
+.article-list a,
+.article-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -284,7 +306,8 @@ main {
   transform: translateX(3px);
 }
 
-.article-list a > span {
+.article-list a > span,
+.article-card > span {
   display: grid;
   gap: 5px;
 }
@@ -300,10 +323,20 @@ main {
   line-height: 1.4;
 }
 
-.article-list a > small {
+.article-list a > small,
+.article-card > span:last-child {
   flex: 0 0 auto;
   max-width: 130px;
   text-align: right;
+}
+
+.coming-soon-label {
+  display: inline-block;
+  color: #b9c6e8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .empty-search-result {
@@ -565,6 +598,11 @@ main {
   text-decoration: none;
 }
 
+.site-footer span {
+  color: #8491b2;
+  font-weight: 600;
+}
+
 .site-footer a:hover {
   color: white;
 }
@@ -649,7 +687,8 @@ main {
     min-height: 160px;
   }
 
-  .article-list a > small {
+  .article-list a > small,
+  .article-card > span:last-child {
     max-width: none;
     text-align: left;
   }
