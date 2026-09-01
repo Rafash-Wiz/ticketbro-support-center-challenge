@@ -22,6 +22,8 @@ function HomePage() {
     return searchableText.includes(normalizedSearchTerm)
   })
 
+  const articleLabel = matchingArticles.length === 1 ? 'article' : 'articles'
+
   return (
     <>
       <section className="intro-section">
@@ -55,7 +57,9 @@ function HomePage() {
         <section className="search-results" aria-live="polite">
           <div className="section-heading">
             <p className="eyebrow">Search results</p>
-            <h2>{matchingArticles.length} matching articles</h2>
+            <h2>
+              {matchingArticles.length} matching {articleLabel}
+            </h2>
           </div>
 
           {matchingArticles.length > 0 ? (
