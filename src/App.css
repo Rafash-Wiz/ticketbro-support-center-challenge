@@ -525,6 +525,44 @@ main {
   margin-top: 10px;
 }
 
+.not-found-page {
+  width: min(620px, calc(100% - 48px));
+  margin: 116px auto;
+  text-align: center;
+}
+
+.not-found-page h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(42px, 5.6vw, 62px);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 1.05;
+}
+
+.not-found-page > p:not(.eyebrow) {
+  margin: 20px 0 28px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.not-found-page a {
+  display: inline-block;
+  padding: 12px 19px;
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  background: var(--primary);
+  border-radius: 10px;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.not-found-page a:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
 .contact-heading {
   margin-bottom: 34px;
 }
@@ -681,7 +719,8 @@ main {
   .search-results,
   .registration-issues-page,
   .contact-page,
-  .article-page {
+  .article-page,
+  .not-found-page {
     width: calc(100% - 32px);
   }
 

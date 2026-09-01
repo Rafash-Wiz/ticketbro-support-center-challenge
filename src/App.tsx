@@ -5,6 +5,7 @@ import ContactUsPage from './pages/ContactUsPage'
 import ArticlePage from './pages/ArticlePage'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
+import NotFoundPage from './pages/NotFoundPage'
 import RegistrationIssuesPage from './pages/RegistrationIssuesPage'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/articles/cannot-sign-in" element={<ArticlePage />} />
           <Route path="/contact" element={<ContactUsPage />} />
           <Route path="/help/registration" element={<RegistrationIssuesPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
       <Footer />
