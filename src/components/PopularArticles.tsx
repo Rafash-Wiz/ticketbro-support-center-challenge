@@ -1,9 +1,4 @@
-const popularArticles = [
-  'I did not receive my ticket',
-  'How do I change or cancel a booking?',
-  'How do I request a refund?',
-  'How do I update my account details?',
-]
+import { articles } from '../data/articles'
 
 function PopularArticles() {
   return (
@@ -14,9 +9,9 @@ function PopularArticles() {
       </div>
 
       <div className="article-list">
-        {popularArticles.map((article) => (
-          <a href="#article" key={article}>
-            {article}
+        {articles.slice(0, 4).map((article) => (
+          <a href="#article" key={article.id}>
+            {article.title}
           </a>
         ))}
       </div>

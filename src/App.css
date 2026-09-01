@@ -11,7 +11,8 @@ main {
 
 .intro-section,
 .support-categories,
-.popular-articles {
+.popular-articles,
+.search-results {
   width: min(960px, calc(100% - 48px));
   margin-right: auto;
   margin-left: auto;
@@ -123,6 +124,10 @@ main {
   margin-bottom: 90px;
 }
 
+.search-results {
+  margin-bottom: 56px;
+}
+
 .section-heading {
   margin-bottom: 22px;
 }
@@ -140,11 +145,46 @@ main {
 }
 
 .article-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   padding: 18px;
   color: inherit;
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+}
+
+.article-list a > span {
+  display: grid;
+  gap: 5px;
+}
+
+.article-list strong {
+  font-size: 14px;
+}
+
+.article-list small {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.article-list a > small {
+  max-width: 130px;
+  text-align: right;
+}
+
+.empty-search-result {
+  margin: 0;
+  padding: 20px;
+  color: #4b5563;
+  text-align: center;
   background: white;
   border: 1px solid #d1d5db;
   border-radius: 10px;
@@ -368,6 +408,7 @@ main {
   .intro-section,
   .support-categories,
   .popular-articles,
+  .search-results,
   .registration-issues-page,
   .contact-page {
     width: calc(100% - 32px);
@@ -392,6 +433,11 @@ main {
   .support-categories,
   .article-list {
     grid-template-columns: 1fr;
+  }
+
+  .article-list a > small {
+    max-width: none;
+    text-align: left;
   }
 
   .request-form {

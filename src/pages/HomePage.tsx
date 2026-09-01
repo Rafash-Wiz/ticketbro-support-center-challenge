@@ -1,7 +1,26 @@
+import { useState } from 'react'
 import PopularArticles from '../components/PopularArticles'
 import SupportCategories from '../components/SupportCategories'
+import { articles } from '../data/articles'
 
 function HomePage() {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [submittedSearchTerm, setSubmittedSearchTerm] = useState('')
+  const normalizedSearchTerm = submittedSearchTerm.trim().toLowerCase()
+
+  const matchingArticles = articles.filter((article) => {
+    const searchableText = [
+      article.title,
+      article.category,
+      article.summary,
+      ...article.keywords,
+    ]
+      .join(' ')
+      .toLowerCase()
+
+    return searchableText.includes(normalizedSearchTerm)
+  })
+
   return (
     <>
       <section className="intro-section">
@@ -13,10 +32,45 @@ function HomePage() {
             <circle cx="11" cy="11" r="6" />
             <path d="m16 16 4 4" />
           </svg>
-          <input type="search" aria-label="Search the help center" placeholder="Search for help" />
-          <button type="button">Search</button>
+          <input
+            type="search"
+            aria-label="Search the help center"
+            placeholder="Search for help"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+          />
+          <button type="button" onClick={() => setSubmittedSearchTerm(searchTerm)}>
+            Search
+          </button>
         </div>
       </section>
+
+      {normalizedSearchTerm && (
+        <section className="search-results" aria-live="polite">
+          <div className="section-heading">
+            <p className="eyebrow">Search results</p>
+            <h2>{matchingArticles.length} matching articles</h2>
+          </div>
+
+          {matchingArticles.length > 0 ? (
+            <div className="article-list">
+              {matchingArticles.map((article) => (
+                <a href="#article" key={article.id}>
+                  <span>
+                    <strong>{article.title}</strong>
+                    <small>{article.summary}</small>
+                  </span>
+                  <small>{article.category}</small>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <p className="empty-search-result">
+              No articles matched "{submittedSearchTerm}". Try a different search term.
+            </p>
+          )}
+        </section>
+      )}
 
       <SupportCategories />
       <PopularArticles />
