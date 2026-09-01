@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { type FormEvent, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PopularArticles from '../components/PopularArticles'
 import SupportCategories from '../components/SupportCategories'
@@ -24,13 +24,18 @@ function HomePage() {
 
   const articleLabel = matchingArticles.length === 1 ? 'article' : 'articles'
 
+  function handleSearch(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setSubmittedSearchTerm(searchTerm)
+  }
+
   return (
     <>
       <section className="intro-section">
         <p className="eyebrow">ticketbro support</p>
         <h1>We're here when things don't go as planned.</h1>
 
-        <div className="search-bar">
+        <form className="search-bar" onSubmit={handleSearch}>
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="11" cy="11" r="6" />
             <path d="m16 16 4 4" />
@@ -41,16 +46,9 @@ function HomePage() {
             placeholder="Search for help"
             value={searchTerm}
             onChange={(event) => setSearchTerm(event.target.value)}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter') {
-                setSubmittedSearchTerm(searchTerm)
-              }
-            }}
           />
-          <button type="button" onClick={() => setSubmittedSearchTerm(searchTerm)}>
-            Search
-          </button>
-        </div>
+          <button type="submit">Search</button>
+        </form>
       </section>
 
       {normalizedSearchTerm && (
