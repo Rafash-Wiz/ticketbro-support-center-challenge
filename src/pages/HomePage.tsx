@@ -63,8 +63,8 @@ function HomePage() {
           {matchingArticles.length > 0 ? (
             <div className="article-list">
               {matchingArticles.map((article) =>
-                article.id === 1 ? (
-                  <Link to="/articles/cannot-sign-in" key={article.id}>
+                article.path ? (
+                  <Link to={article.path} key={article.id}>
                     <span>
                       <strong>{article.title}</strong>
                       <small>{article.summary}</small>

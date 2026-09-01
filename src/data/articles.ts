@@ -4,6 +4,7 @@ export type HelpArticle = {
   category: string
   summary: string
   keywords: string[]
+  path?: string
 }
 
 export const articles: HelpArticle[] = [
@@ -13,6 +14,7 @@ export const articles: HelpArticle[] = [
     category: 'Registration & account',
     summary: 'Reset your password and regain access to your ticketbro account.',
     keywords: ['sign in', 'login', 'password', 'reset', 'access', 'account'],
+    path: '/articles/cannot-sign-in',
   },
   {
     id: 2,
