@@ -9,6 +9,147 @@ main {
   flex: 1;
 }
 
+.intro-section,
+.support-categories,
+.popular-articles {
+  width: min(960px, calc(100% - 48px));
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.intro-section {
+  padding: 96px 0 56px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.intro-section h1 {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: clamp(42px, 6vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 620px;
+  margin: 34px auto 0;
+  padding: 8px 8px 8px 16px;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+}
+
+.search-bar svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #6b7280;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.search-bar input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+}
+
+.search-bar button {
+  padding: 10px 16px;
+  color: white;
+  font-weight: 700;
+  background: #111827;
+  border: 0;
+  border-radius: 7px;
+}
+
+.support-categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 80px;
+}
+
+.support-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 180px;
+  padding: 20px;
+  color: inherit;
+  font-weight: 700;
+  text-align: center;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+}
+
+.card-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  color: #374151;
+  background: #f3f4f6;
+  border-radius: 10px;
+}
+
+.card-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.popular-articles {
+  margin-bottom: 90px;
+}
+
+.section-heading {
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+}
+
+.article-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.article-list a {
+  padding: 18px;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+}
+
 .site-header {
   position: fixed;
   inset: 0 0 auto;
@@ -80,5 +221,32 @@ main {
   .site-footer {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .intro-section,
+  .support-categories,
+  .popular-articles {
+    width: calc(100% - 32px);
+  }
+
+  .intro-section {
+    padding: 72px 0 42px;
+  }
+
+  .search-bar {
+    flex-wrap: wrap;
+  }
+
+  .search-bar input {
+    min-height: 32px;
+  }
+
+  .search-bar button {
+    width: 100%;
+  }
+
+  .support-categories,
+  .article-list {
+    grid-template-columns: 1fr;
   }
 }
