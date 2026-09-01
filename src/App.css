@@ -138,7 +138,9 @@ main {
   max-width: 780px;
   margin: 0 auto;
   font-size: clamp(48px, 6.4vw, 76px);
-  line-height: 1.02;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  word-spacing: 0.06em;
 }
 
 .search-bar {
