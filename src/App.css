@@ -339,6 +339,15 @@ main {
   text-transform: uppercase;
 }
 
+.available-article-label {
+  display: inline-block;
+  color: #b9c6ff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
 .empty-search-result {
   margin: 0;
   padding: 22px;
@@ -480,6 +489,38 @@ main {
 
 .contact-page {
   width: min(680px, calc(100% - 48px));
+}
+
+.article-page {
+  width: min(720px, calc(100% - 48px));
+  margin: 84px auto;
+}
+
+.article-page h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(42px, 5.6vw, 62px);
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  line-height: 1.05;
+}
+
+.article-page > p:not(.eyebrow),
+.article-page li {
+  color: var(--muted-strong);
+  line-height: 1.65;
+}
+
+.article-page > p:not(.eyebrow) {
+  margin-top: 18px;
+}
+
+.article-page ol {
+  padding-left: 23px;
+}
+
+.article-page li + li {
+  margin-top: 10px;
 }
 
 .contact-heading {
@@ -637,7 +678,8 @@ main {
   .popular-articles,
   .search-results,
   .registration-issues-page,
-  .contact-page {
+  .contact-page,
+  .article-page {
     width: calc(100% - 32px);
   }
 
@@ -651,7 +693,8 @@ main {
   }
 
   .registration-issues-page,
-  .contact-page {
+  .contact-page,
+  .article-page {
     margin: 58px auto;
   }
 

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import RegistrationIssueAnswer, { type RegistrationIssue } from '../components/RegistrationIssueAnswer'
+import RegistrationIssueAnswer from '../components/RegistrationIssueAnswer'
+import type { RegistrationIssue } from '../data/registrationIssues'
 
 function RegistrationIssuesPage() {
   const [selectedIssue, setSelectedIssue] = useState<RegistrationIssue | null>(null)

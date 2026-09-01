@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import PopularArticles from '../components/PopularArticles'
 import SupportCategories from '../components/SupportCategories'
 import { articles } from '../data/articles'
@@ -59,18 +60,31 @@ function HomePage() {
 
           {matchingArticles.length > 0 ? (
             <div className="article-list">
-              {matchingArticles.map((article) => (
-                <article className="article-card" key={article.id}>
-                  <span>
-                    <strong>{article.title}</strong>
-                    <small>{article.summary}</small>
-                  </span>
-                  <span>
-                    <small>{article.category}</small>
-                    <small className="coming-soon-label">Coming soon</small>
-                  </span>
-                </article>
-              ))}
+              {matchingArticles.map((article) =>
+                article.id === 1 ? (
+                  <Link to="/articles/cannot-sign-in" key={article.id}>
+                    <span>
+                      <strong>{article.title}</strong>
+                      <small>{article.summary}</small>
+                    </span>
+                    <span>
+                      <small>{article.category}</small>
+                      <small className="available-article-label">Read article</small>
+                    </span>
+                  </Link>
+                ) : (
+                  <article className="article-card" key={article.id}>
+                    <span>
+                      <strong>{article.title}</strong>
+                      <small>{article.summary}</small>
+                    </span>
+                    <span>
+                      <small>{article.category}</small>
+                      <small className="coming-soon-label">Coming soon</small>
+                    </span>
+                  </article>
+                ),
+              )}
             </div>
           ) : (
             <p className="empty-search-result">
