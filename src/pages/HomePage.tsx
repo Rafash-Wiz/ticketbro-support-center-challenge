@@ -38,6 +38,11 @@ function HomePage() {
             placeholder="Search for help"
             value={searchTerm}
             onChange={(event) => setSearchTerm(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                setSubmittedSearchTerm(searchTerm)
+              }
+            }}
           />
           <button type="button" onClick={() => setSubmittedSearchTerm(searchTerm)}>
             Search
