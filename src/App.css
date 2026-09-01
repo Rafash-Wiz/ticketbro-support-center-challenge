@@ -229,6 +229,69 @@ main {
   text-decoration: none;
 }
 
+.contact-page {
+  width: min(680px, calc(100% - 48px));
+  margin: 84px auto;
+}
+
+.contact-heading {
+  margin-bottom: 34px;
+}
+
+.contact-heading h1 {
+  margin: 0;
+  font-size: clamp(42px, 5.5vw, 62px);
+  letter-spacing: -0.055em;
+}
+
+.contact-heading > p:not(.eyebrow) {
+  margin: 18px 0 0;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.request-form {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 30px;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+}
+
+.request-form label {
+  margin-top: 12px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.request-form input,
+.request-form select,
+.request-form textarea {
+  width: 100%;
+  padding: 12px 13px;
+  color: inherit;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.request-form textarea {
+  resize: vertical;
+}
+
+.request-form button {
+  margin-top: 18px;
+  padding: 12px 16px;
+  color: white;
+  font-weight: 700;
+  background: #111827;
+  border: 0;
+  border-radius: 8px;
+}
+
 .site-header {
   position: fixed;
   inset: 0 0 auto;
@@ -305,7 +368,8 @@ main {
   .intro-section,
   .support-categories,
   .popular-articles,
-  .registration-issues-page {
+  .registration-issues-page,
+  .contact-page {
     width: calc(100% - 32px);
   }
 
@@ -328,5 +392,9 @@ main {
   .support-categories,
   .article-list {
     grid-template-columns: 1fr;
+  }
+
+  .request-form {
+    padding: 22px;
   }
 }
