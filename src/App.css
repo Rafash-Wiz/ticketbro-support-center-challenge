@@ -167,6 +167,59 @@ main {
   line-height: 1.6;
 }
 
+.registration-options {
+  display: grid;
+  gap: 10px;
+  margin-top: 36px;
+}
+
+.registration-options button {
+  padding: 20px;
+  color: inherit;
+  font-weight: 700;
+  text-align: left;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+}
+
+.issue-answer {
+  margin-top: 36px;
+  padding: 28px;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+}
+
+.back-button {
+  padding: 0;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 700;
+  background: transparent;
+  border: 0;
+}
+
+.issue-answer h2 {
+  margin: 26px 0 0;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+}
+
+.issue-answer p,
+.issue-answer li {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.issue-answer p {
+  margin-top: 16px;
+}
+
+.issue-answer ol {
+  padding-left: 22px;
+}
+
 .back-link {
   display: inline-block;
   margin-bottom: 38px;
