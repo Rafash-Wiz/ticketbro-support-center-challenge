@@ -1,6 +1,15 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 function ContactUsPage() {
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    event.currentTarget.reset()
+    setIsSubmitted(true)
+  }
+
   return (
     <section className="contact-page">
       <div className="contact-heading">
@@ -12,7 +21,7 @@ function ContactUsPage() {
         <p>Share a few details and our support team will help you as quickly as possible.</p>
       </div>
 
-      <form className="request-form" onSubmit={(event) => event.preventDefault()}>
+      <form className="request-form" onSubmit={handleSubmit}>
         <label htmlFor="issue-category">What do you need help with?</label>
         <select id="issue-category" name="issue-category" defaultValue="" required>
           <option value="" disabled>
@@ -55,6 +64,12 @@ function ContactUsPage() {
         <input id="attachment" name="attachment" type="file" />
 
         <button type="submit">Submit request</button>
+
+        {isSubmitted && (
+          <p className="request-success" role="status">
+            Your request has been submitted. Our support team will get back to you soon.
+          </p>
+        )}
       </form>
     </section>
   )
