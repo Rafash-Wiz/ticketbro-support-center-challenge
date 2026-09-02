@@ -19,5 +19,5 @@
 ## Architecture & Tools
 
 - Frontend: React, TypeScript, Vite, React Router, and CSS. This PoC uses typed local mock data instead of an API.
-- Backend: a Node.js and TypeScript API deployed as AWS Lambda functions behind API Gateway. PostgreSQL stores articles and support requests; S3 stores file attachments.
+- Backend: a Node.js and TypeScript API deployed as AWS Lambda functions behind API Gateway. PostgreSQL stores articles and ticketbro-specific support-request metadata, such as provider, booking, and user context; S3 stores attachments. A future integration with a support platform such as Zendesk could create and synchronize tickets for the support team.
 - Platform and tools: AWS Cognito for authentication, SES for support-email notifications, GitHub Actions for CI, and ESLint plus production build checks. Vitest would be added for automated unit tests.

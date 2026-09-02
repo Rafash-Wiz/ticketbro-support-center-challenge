@@ -31,4 +31,8 @@ npm run build
 - Search local mock help articles by title, category, summary, and keywords.
 - Submit a support request with simulated async loading and success feedback.
 
-The PoC intentionally uses typed local data and a fake request function instead of a backend.
+## PoC scope
+
+This proof of concept intentionally uses typed local mock data and a simulated request function instead of a backend API.
+
+The proposed production architecture, including AWS Lambda, PostgreSQL, S3, Cognito, SES, and a potential support-platform integration, is documented in [SPEC.md](./SPEC.md).
